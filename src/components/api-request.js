@@ -1535,10 +1535,18 @@ export default class ApiRequest extends LitElement {
         }
         if (this.responseIsBlob) {
           const contentDisposition = fetchResponse.headers.get('content-disposition');
-          this.respContentDisposition = contentDisposition ? contentDisposition.split('filename=')[1].replace(/"|'/g, '') : 'filename';
+          
+          // Improved regex to capture the filename even if it's wrapped in quotes or contains extra attributes
+          const filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+          const matches = filenameRegex.exec(contentDisposition);
+          
+          this.respContentDisposition = matches && matches[1] 
+            ? matches[1].replace(/['"]/g, '')  // Remove quotes from the filename
+            : 'default-filename.xlsx';  // Fallback if filename extraction fails
+          
           respBlob = await fetchResponse.blob();
           this.responseBlobUrl = URL.createObjectURL(respBlob);
-        }
+        }        
       } else {
         respText = await fetchResponse.text();
         this.responseText = respText;
