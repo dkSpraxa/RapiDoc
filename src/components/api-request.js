@@ -1058,7 +1058,7 @@ export default class ApiRequest extends LitElement {
                 : ''
               }  
               <button class="m-btn thin-border mar-top-8" style="width:135px" @click='${(e) => { downloadResource(this.responseBlobUrl, this.respContentDisposition, e); }}' part="btn btn-outline">
-                DOWNLOAD
+                browser
               </button>
               ${this.responseBlobType === 'view' || this.responseBlobType === 'image'
                 ? html`<button class="m-btn thin-border mar-top-8" style="width:135px"  @click='${(e) => { viewResource(this.responseBlobUrl, e); }}' part="btn btn-outline">VIEW (NEW TAB)</button>`

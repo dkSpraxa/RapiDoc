@@ -2199,7 +2199,7 @@ pre[class*="language-"] {
         ${this.responseIsBlob?z`
             <div class="tab-content col" style="flex:1; display:${"response"===this.activeResponseTab?"flex":"none"};">
               <button class="m-btn thin-border mar-top-8" style="width:135px" @click='${e=>{ht(this.responseBlobUrl,this.respContentDisposition)}}' part="btn btn-outline">
-                DOWNLOAD
+                bro
               </button>
               ${"view"===this.responseBlobType?z`<button class="m-btn thin-border mar-top-8" style="width:135px"  @click='${e=>{ft(this.responseBlobUrl)}}' part="btn btn-outline">VIEW (NEW TAB)</button>`:""}
             </div>`:z`

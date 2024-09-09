@@ -8315,7 +8315,7 @@ class ApiRequest extends lit_element_s {
               <button class="m-btn thin-border mar-top-8" style="width:135px" @click='${e => {
       downloadResource(this.responseBlobUrl, this.respContentDisposition, e);
     }}' part="btn btn-outline">
-                DOWNLOAD
+                brow
               </button>
               ${this.responseBlobType === 'view' ? lit_html_x`<button class="m-btn thin-border mar-top-8" style="width:135px"  @click='${e => {
       viewResource(this.responseBlobUrl, e);
